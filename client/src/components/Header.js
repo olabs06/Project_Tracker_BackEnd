@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar,Nav, Container} from 'react-bootstrap';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
@@ -52,15 +53,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header = () =>{
     return(
     <Navbar bg='light' variant='light'>
-        <Navbar.Brand >
-            <img  src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo.png' alt='Moringa' width={150} height={30} />
-        </Navbar.Brand>
+        <Navbar.Brand href="/">
+            <img
+              src="https://moringaschool.com/wp-content/themes/moringa/public/images/logo.png"
+              width="200"
+              height="50"
+              className="d-inline-block align-top"
+              alt="Moringa"
+            />
+          </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end" >
             <Nav style= {{color: 'blue'}} >
-                <Nav.Link as={Link} to='/' >Classes</Nav.Link>
-                <Nav.Link as={Link} to="projects">Projects</Nav.Link>
                 <Nav.Link as={Link} to="about">About</Nav.Link>
+                <Nav.Link as={Link} to="projects">Projects</Nav.Link>
+                <NavDropdown title="Cohorts" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">2022 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">2021 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">2020 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.4">2019 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.5">2018 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.6">2017 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.7">2016 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.8">2015 Cohorts</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.9">2014 Cohorts</NavDropdown.Item>
+                </NavDropdown>
                 <Nav.Link as={Link} to="community">Community</Nav.Link>
             </Nav>
         </Navbar.Collapse>

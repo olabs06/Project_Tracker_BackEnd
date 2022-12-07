@@ -1,9 +1,9 @@
 import React from 'react'
 
 const About= ()=>{
-    return(
-        <h2>Hello</h2>
-    )
+
+    window.location.replace('https://moringaschool.com/about-us/');
+    return null;
 }
 
 export default About;
