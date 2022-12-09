@@ -10,18 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_12_07_172345) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_095409) do
->>>>>>> 19428695860f9eb0fa0c028d9165245985978006
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.integer "cohort"
-<<<<<<< HEAD
     t.string "image_url"
     t.string "github_link"
     t.text "description"
@@ -36,10 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_095409) do
     t.string "password_digest"
     t.integer "phone_number"
     t.string "user_type"
-=======
-    t.string "link"
-    t.string "description"
->>>>>>> 19428695860f9eb0fa0c028d9165245985978006
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
