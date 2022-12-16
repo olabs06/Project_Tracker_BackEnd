@@ -10,14 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_172345) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_233645) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string "year"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "group_name"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.string "group_members"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.integer "cohort"
     t.string "image_url"
     t.string "github_link"
     t.text "description"
     t.integer "user_id"
+    t.integer "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

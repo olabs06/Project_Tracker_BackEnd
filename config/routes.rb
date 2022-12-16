@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index]
+  resources :cohorts, only: [:index, :show, :create, :update]
+  resources :groups, only: [:index, :show, :create, :update]
+  resources :users, only: [:index, :show, :create, :update]
   resources :projects, only: [:index, :show, :create, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +12,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete "/logout", to: "sessions#destroy"
   get '/me', to: 'users#show'
-  post '/signup', to: 'users#create'
+  # post '/signup', to: 'users#create'
   #
 end

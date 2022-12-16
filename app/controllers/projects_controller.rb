@@ -11,13 +11,20 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        add_project = Project.create!(project_params)
+        image = Cloudinary::Uploader.upload(params[:image_url], {
+            upload_preset: "project-tracker",
+          })
+
+        add_project = Project.create!({:title => params[:title], :cohort => params[:cohort],:image_url => image['url'], :github_link => params[:github_link], :description => params[:description], :user_id => params[:user_id]})
         render json: add_project, status: :created
     end
 
     def update
         update_project = Project.find_by(id: params[:id])
-        update_project.update(project_params)
+        image = Cloudinary::Uploader.upload(params[:image_url], {
+            upload_preset: "project-tracker",
+          })
+        update_project.update({:title => params[:title], :cohort => params[:cohort],:image_url => image['url'], :github_link => params[:github_link], :description => params[:description], :user_id => params[:user_id]})
         render json: update_project
     end
 
