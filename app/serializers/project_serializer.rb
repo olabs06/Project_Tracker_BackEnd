@@ -1,5 +1,5 @@
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :title, :cohort, :image_url, :github_link, :description, :user_id
+  attributes :id, :title, :image_url, :github_link, :description
 
-  has_one :group
+  has_many :users
 end

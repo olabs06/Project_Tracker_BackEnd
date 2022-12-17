@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
-    belongs_to :user
-    belongs_to :group
-    belongs_to :cohort
+    has_many :users
+    has_many :groups, through: :users
+    
 
 end

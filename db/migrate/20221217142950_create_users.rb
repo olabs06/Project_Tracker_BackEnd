@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.integer :phone_number
       t.string :user_type
+      t.integer :project_id, index: true, foreign_key: true
+      t.integer :group_id, index: true, foreign_key: true
 
       t.timestamps
     end

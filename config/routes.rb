@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   resources :cohorts, only: [:index, :show, :create, :update]
   resources :groups, only: [:index, :show, :create, :update]
   resources :users, only: [:index, :show, :create, :update]

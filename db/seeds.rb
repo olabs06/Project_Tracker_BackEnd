@@ -5,17 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-user1 = User.create(name: "Nii", email_address:"nii@gmail.com", user_type:"admin", phone_number:"12345")
-user2 = User.create(name: "Simeon", email_address:"simeon@gmail.com", user_type:"admin", phone_number:"13345")
-
-cohort1 =Cohort.create(year: 2022, user_id:user1.id)
-cohort2 =Cohort.create(year: 2021, user_id:user2.id)
-
-group1 =Group.create(group_name: "A", group_members: "Abdul malik, Ibrahim, Simeon", user_id:user2.id, project_id:project1.id)
-group2 =Group.create(group_name: "B", group_members: "George, Nosa, Ben", user_id:user1.id, project_id:project2.id)
 
 
-project1 = Project.create(title:"Project Tracker", image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"", user_id:user1.id, group_id:group2.id)
-project2 = Project.create(title:"Recipe Tracker",  image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"", user_id:user2.id, group_id:group1.id)
-project3 = Project.create(title:"Expenditure Tracker", image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"", user_id:user1.id, group_id:group2.id)
+group1 =Group.create(group_name: "A")
+group2 =Group.create(group_name: "B")
 
+
+project1 = Project.create(title:"Project Tracker", cohort: "2022", image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"")
+project2 = Project.create(title:"Recipe Tracker", cohort: "2021", image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"")
+project3 = Project.create(title:"Expenditure Tracker", cohort: "2020", image_url: "/Users/niistephens/Development/code/phase-5/project-tracker-backend/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg", github_link:"",description:"")
+
+
+# cohort1 =Cohort.create(year: 2022)
+# cohort2 =Cohort.create(year: 2021)
+
+user1 = User.create(name: "Nii", email_address:"nii@gmail.com", password: "12345", user_type:"admin", phone_number:"12345", project_id:project1.id, group_id:group2.id)
+user2 = User.create(name: "Simeon", email_address:"simeon@gmail.com", password: "23455", user_type:"group_leader", phone_number:"13345", project_id:project2.id, group_id:group1.id)
+user3 = User.create(name: "Ibrahim", email_address:"ibrahim@gmail.com", password: "34566", user_type:"student", phone_number:"13345", project_id:project2.id, group_id:group1.id)
