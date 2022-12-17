@@ -11,20 +11,13 @@ class GroupsController < ApplicationController
     end
 
     def create
-        image = Cloudinary::Uploader.upload(params[:image_url], {
-            upload_preset: "project-tracker",
-          })
-
-        add_group = Group.create!({:group_name => params[:group_name], :group_members => params[:group_members], :user_id => params[:user_id], :project_id => params[:project_id]})
+        add_group = Group.create!(group_params)
         render json: add_group, status: :created
     end
 
     def update
         update_project = Group.find_by(id: params[:id])
-        image = Cloudinary::Uploader.upload(params[:image_url], {
-            upload_preset: "project-tracker",
-          })
-        update_group.update({:group_name => params[:group_name], :group_members => params[:group_members], :user_id => params[:user_id], :project_id => params[:project_id]})
+        update_group.update(group_params)
         render json: update_group
     end
 
@@ -38,6 +31,6 @@ class GroupsController < ApplicationController
   
   
     def group_params
-      params.permit(:group_name, :group_members, :user_id, :project_id)
+      params.permit(:group_name)
     end
 end

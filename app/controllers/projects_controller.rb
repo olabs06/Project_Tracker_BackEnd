@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        image = Cloudinary::Uploader.upload(params[:image_url], {
+        image = Cloudinary::Uploader.upload(params[:image_url] {
             upload_preset: "project-tracker",
           })
 
