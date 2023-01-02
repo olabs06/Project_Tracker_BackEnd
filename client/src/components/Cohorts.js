@@ -3,11 +3,14 @@ import  Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
-import Cards from './Cards';
+import Cards from './ProjectCard';
 
 
 
-let Classes = ()=> {
+
+
+
+let Cohorts = ()=> {
     return(
         <Container  className='ml-1' >
             <Row >
@@ -48,4 +51,4 @@ let Classes = ()=> {
         </Container>
     )
 }
-export default Classes;
+export default Cohorts;
